@@ -45,8 +45,8 @@ for (var i = 0; i < 4; i++) {
     name: createName(),
     coatColor: itemSelection(coatColors),
     eyesColor: itemSelection(eyesColors)
-  }
-};
+  };
+}
 
 similarListElement.appendChild(fillingBlock(wizards));
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
