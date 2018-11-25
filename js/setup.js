@@ -4,6 +4,7 @@ var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Крис�
 var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
+var wizards = [];
 
 var userDialog = document.querySelector('.setup');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
@@ -18,29 +19,6 @@ var itemSelection = function (array) {
 var createName = function () {
   return itemSelection(names) + ' ' + itemSelection(surnames);
 };
-
-var wizards = [
-  {
-    name: createName(),
-    coatColor: itemSelection(coatColors),
-    eyesColor: itemSelection(eyesColors)
-  },
-  {
-    name: createName(),
-    coatColor: itemSelection(coatColors),
-    eyesColor: itemSelection(eyesColors)
-  },
-  {
-    name: createName(),
-    coatColor: itemSelection(coatColors),
-    eyesColor: itemSelection(eyesColors)
-  },
-  {
-    name: createName(),
-    coatColor: itemSelection(coatColors),
-    eyesColor: itemSelection(eyesColors)
-  }
-];
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -60,6 +38,14 @@ var fillingBlock = function (array) {
   }
 
   return fragment;
+};
+
+for (var i = 0; i < 4; i++) {
+  wizards[i] = {
+    name: createName(),
+    coatColor: itemSelection(coatColors),
+    eyesColor: itemSelection(eyesColors)
+  }
 };
 
 similarListElement.appendChild(fillingBlock(wizards));
